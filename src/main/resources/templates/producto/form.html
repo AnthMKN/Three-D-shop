@@ -22,7 +22,7 @@
 						<label class="col-sm-2 col-form-label">Nombre</label>
 						<div class="col-sm-6">
 							<input type="text" th:field="*{nombre}" class="form-control"
-								th:errorclass="'form-control alert-danger'" /> <small
+								th:errorclass="'form-control alert-danger'" required/> <small
 								class="form-text text-danger"
 								th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
 						</div>
@@ -32,7 +32,7 @@
 						<label class="col-sm-2 col-form-label">Precio</label>
 						<div class="col-sm-6">
 							<input type="text" th:field="*{precio}" class="form-control"
-								th:errorclass="'form-control alert-danger'" /> <small
+								th:errorclass="'form-control alert-danger'" required/> <small
 								class="form-text text-danger"
 								th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></small>
 						</div>

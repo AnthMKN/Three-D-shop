@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="~{layout/layout :: head}"></head>
 <body>
 	
@@ -11,7 +11,7 @@
 		<div class="card-header" th:text="${titulo}"></div>
 		<div class="card-body">
 
-			<h4 class="card-title">
+			<h4 sec:authorize="isAuthenticated()" class="card-title">
 				<a th:href="@{producto/form}" class="btn btn-primary">crear producto</a>
 			</h4>
 
@@ -21,7 +21,7 @@
 						<th>nombre</th>
 						<th>precio</th>
 						<th>ver</th>
-						<th>editar</th>
+						<th sec:authorize="isAuthenticated()">editar</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -30,7 +30,7 @@
 						<td th:text="${producto.precio} + €"></td>
 						<td><a class="btn btn-primary btn-sm"
 							th:href="@{/producto/ver/} + ${producto.id}" th:text="'ver'"></a></td>
-						<td><a class="btn btn-primary btn-sm"
+						<td sec:authorize="isAuthenticated()"><a class="btn btn-primary btn-sm"
 							th:href="@{/producto/form/} + ${producto.id}" th:text="'editar'"></a></td>
 					</tr>
 				</tbody>
