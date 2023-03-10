@@ -39,7 +39,7 @@ public class SpringSecurityConfig {
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
 		http.authorizeHttpRequests()
-		.requestMatchers("/", "/css/**", "/js/**", "/images/**", "/cliente/listar","/about").permitAll()
+		.requestMatchers("/", "/css/**", "/js/**", "/images/**","/producto/ver/**", "/cliente/listar","/about").permitAll()
 		.requestMatchers("/cliente/ver/**").hasAnyRole("USER")
 		.requestMatchers("/uploads/**").hasAnyRole("USER")
 		.requestMatchers("/cliente/form/**").hasAnyRole("ADMIN")
